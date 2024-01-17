@@ -33,7 +33,7 @@ export function getCachePath(file: TFile): {
   folder: string
   fullpath: string
 } {
-  const hash = makeMD5(file.path)
+  const hash = makeMD5(file.path + file.stat.mtime)
 
   const folder = `${getCacheBasePath()}`
   const filename = `${hash}.json`
